@@ -27,11 +27,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../posts/create.html">create</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="login.html">login</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="register.html">register</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">About</a></li>
                        
-                      
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -54,36 +51,31 @@
                 <!-- Main Content-->
         <div class="container px-4 px-lg-5">
 
-            <form method="POST" action="register.php">
+            <form method="POST" action="">
               <!-- Email input -->
               <div class="form-outline mb-4">
-                <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Email" />
+                <input type="text" name="email" id="form2Example1" class="form-control" placeholder="title" />
                
               </div>
 
               <div class="form-outline mb-4">
-                <input type="" name="username" id="form2Example1" class="form-control" placeholder="Username" />
-               
-              </div>
+                <input type="text" name="email" id="form2Example1" class="form-control" placeholder="subtitle" />
+            </div>
 
-              <!-- Password input -->
               <div class="form-outline mb-4">
-                <input type="password" name="password" id="form2Example2" placeholder="Password" class="form-control" />
-                
-              </div>
+                <input type="text" name="email" id="form2Example1" class="form-control" placeholder="body" />
+            </div>
 
+              
+             <div class="form-outline mb-4">
+                <input type="file" name="email" id="form2Example1" class="form-control" placeholder="image" />
+            </div>
 
 
               <!-- Submit button -->
-              <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Register</button>
+              <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">Update</button>
 
-              <!-- Register buttons -->
-              <div class="text-center">
-                <p>Aleardy a member? <a href="login.php">Login</a></p>
-                
-
-               
-              </div>
+          
             </form>
 
 
