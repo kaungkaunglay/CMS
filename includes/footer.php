@@ -1,4 +1,3 @@
-
 </div>
 <!-- Footer-->
 <footer class="border-top">
@@ -37,8 +36,11 @@
     </div>
 </footer>
 <!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!-- Core theme JS-->
-<script src="../js/script.js"></script>
+<script src="<?php echo ROOT ?>/js/scripts.js"></script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 </body>
 </html>
