@@ -1,77 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
-    <title>Admin Panel</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-     <link href="../styles/style.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div id="wrapper">
-    <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
-      <div class="container">
-      <a class="navbar-brand" href="../index.html">LOGO</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<?php
+require "../layouts/header.php";
+require "../../config/config.php";
+?>
+<?php
+if(isset($_SESSION['adminname'])){
+    header("Location".ADMINROOT."/index.php");
+}
+if(isset($_POST['submit']))
+{
+    if(empty($_POST['email']) OR empty($_POST['password'])){
+        echo "<div class='alert alert-danger text-center text-white' role='alert'>Enter Data into inputs</div>";
+    }else{
+        $email = trim(htmlentities($_POST['email']));
+        $password = trim(htmlentities($_POST['password']));
 
-      <div class="collapse navbar-collapse" id="navbarText">
-        <!-- <ul class="navbar-nav side-nav" >
-          <li class="nav-item">
-            <a class="nav-link" style="margin-left: 20px;" href="../index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="admins.html" style="margin-left: 20px;">Admins</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../categories-admins/show-categories.html" style="margin-left: 20px;">Categories</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../posts-admins/show-posts.html" style="margin-left: 20px;">Posts</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" style="margin-left: 20px;">Comments</a>
-          </li> 
+        $login = $conn->query("SELECT * FROM admins WHERE email='$email'");
+        $login->execute();
+        $row = $login->fetch(PDO::FETCH_ASSOC);
+        if($login->rowCount() > 0) {
+            if(password_verify($password,$row["password"])){
 
-        </ul> -->
-        <ul class="navbar-nav ml-md-auto d-md-flex">
-        <!--   <li class="nav-item">
-            <a class="nav-link" href="../index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link  dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              username
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Logout</a>
-              
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="login-admins.html">Login
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>           
-          
-        </ul>
-      </div>
-    </div>
-    </nav>
-<div class="container-fluid"> 
+                $_SESSION['adminname'] = $row['adminname'];
+                $_SESSION['admin_id'] = $row['id'];
+
+                header("Location: ".ADMINROOT."/index.php");
+            }else{
+                echo "<div class='alert alert-danger text-center' role='alert'>The email or password is wrong</div>";
+            }
+        }else{
+            echo "<div class='alert alert-danger text-center' role='alert'>The email or password is wrong</div>";
+        }
+    }
+}
+?>
       <div class="row">
         <div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title mt-5">Login</h5>
-              <form method="POST" class="p-auto" action="login.php">
+              <form method="POST" class="p-auto" action="login-admins.php">
                   <!-- Email input -->
                   <div class="form-outline mb-4">
                     <input type="email" name="email" id="form2Example1" class="form-control" placeholder="Email" />
@@ -92,9 +59,8 @@
 
                  
                 </form>
-
             </div>
        </div>
      </div>
     </div>
-</div>
+<?php require "../layouts/footer.php"?>

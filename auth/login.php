@@ -15,7 +15,7 @@ require "../config/config.php";
     if(isset($_POST['submit']))
     {
         if(empty($_POST['email']) OR empty($_POST['password'])){
-            echo "<script>alert('One or more input are empty')</script>";
+            echo "<div class='alert alert-danger text-center text-white' role='alert'>Enter Data into inputs</div>";
         }else{
             $email = trim(htmlentities($_POST['email']));
             $password = trim(htmlentities($_POST['password']));
@@ -29,8 +29,10 @@ require "../config/config.php";
                     $_SESSION['user_id'] = $row['id'];
                     header("Location: ".ROOT."/index.php");
                 }else{
-                    echo "<script>alert('Username or password is incorrect')</script>";
+                    echo "<div class='alert alert-danger text-center' role='alert'>The email or password is wrong</div>";
                 }
+            }else{
+               echo "<div class='alert alert-danger text-center' role='alert'>The email or password is wrong</div>";
             }
         }
     }

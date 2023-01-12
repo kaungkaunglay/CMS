@@ -22,7 +22,7 @@ require "../config/config.php";
             header("Location: ".ROOT."/index.php");
         }
     }else{
-        header("Location: ".ROOT."/index.php");
+        header("Location: ".ROOT."/404.php");
     }
 
 ?>

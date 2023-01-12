@@ -40,7 +40,7 @@ define("ROOT","http://localhost/CMS");
                             <?php echo $_SESSION['username']; ?>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="<?php echo ROOT ?>/users/profile.php?prof_id=<?php echo $_SESSION['user_id']; ?>">Profile</a></li>
                             <li><a class="dropdown-item" href="<?php echo ROOT?>/auth/logout.php">Logout</a></li>
                         </ul>
                     </li>

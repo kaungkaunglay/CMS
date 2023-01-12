@@ -3,9 +3,13 @@
     require "config/config.php";
 ?>
 <?php
-    $posts = $conn->query("SELECT * FROM posts");
+    $posts = $conn->query("SELECT * FROM posts WHERE status =1 LIMIT 5");
     $posts->execute();
     $rows = $posts->fetchAll(PDO::FETCH_OBJ);
+
+    $categories = $conn->query("SELECT * FROM categories");
+    $categories->execute();
+    $category = $categories->fetchAll(PDO::FETCH_OBJ);
 ?>
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -33,6 +37,24 @@
                     <?php endforeach;  ?>
                 </div>
             </div>
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <h3 class="mb-5">Categories</h3>
+        <br><br><br>
+        <?php
+        foreach($category as $cat):
+        ?>
+
+        <div class="col-md-6">
+
+            <a href="<?php echo ROOT ?>/categories/category.php?cat_id=<?php echo $cat->id; ?>">
+            <div class="alert alert-dark b-dark text-center text-white" role="alert">
+                <?php echo $cat->name;  ?>
+            </div>
+            </a>
+        </div>
+
+        <?php endforeach; ?>
+    </div>
             <?php
         require "includes/footer.php";
 ?>

@@ -18,3 +18,6 @@ try{
 }catch(PDOException $ex){
     die($ex->getMessage());
 }
+if(!defined('ADMINROOT')){
+    define("ADMINROOT","http://localhost/CMS/admin-panel");
+}

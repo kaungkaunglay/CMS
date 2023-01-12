@@ -15,7 +15,7 @@ require "../config/config.php";
         // second query
         if (isset($_POST['submit'])) {
             if (empty($_POST['title']) or empty($_POST['subtitle']) or empty($_POST['body'])) {
-                echo "<script>alert('one or more inputs are empty')</script>";
+                echo "<div class='alert alert-danger text-center text-white' role='alert'>Enter Data into inputs</div>";
             } else {
                 $title = $_POST['title'];
                 $subtitle = $_POST['subtitle'];
@@ -38,6 +38,8 @@ require "../config/config.php";
                 }
             }
         }
+    }else{
+        header("Location: ".ROOT."/404.php");
     }
 ?>
             <form enctype="multipart/form-data" method="POST" action="update.php?upd_id=<?php echo $id;?>">

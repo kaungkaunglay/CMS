@@ -3,7 +3,7 @@
 <?php
     if(isset($_POST['submit'])){
         if(empty($_POST['email']) OR empty($_POST['username'])){
-            echo "type something in the inputs";
+            echo "<div class='alert alert-danger text-center text-white' role='alert'>Enter data into input</div>";
         }else{
             // get user inputs
             $email = trim($_POST['email']);
