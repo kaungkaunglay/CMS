@@ -3,7 +3,7 @@ require "../layouts/header.php";
 require "../../config/config.php";
 ?>
 <?php
-if(isset($_SESSION['adminname'])){
+if(!isset($_SESSION['adminname'])){
     header("Location".ADMINROOT."/index.php");
 }
 if(isset($_POST['submit']))

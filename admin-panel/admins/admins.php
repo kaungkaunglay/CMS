@@ -3,6 +3,10 @@ require "../layouts/header.php";
 require "../../config/config.php";
 ?>
 <?php
+if(!isset($_SESSION['adminname'])){
+    header("Location: ".ADMINROOT."/admins/login-admins.php");
+}
+
 $admins = $conn->query("SELECT * FROM admins LIMIT 7");
 $admins->execute();
 $rows = $admins->fetchAll(PDO::FETCH_OBJ);

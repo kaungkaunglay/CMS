@@ -21,3 +21,6 @@ try{
 if(!defined('ADMINROOT')){
     define("ADMINROOT","http://localhost/CMS/admin-panel");
 }
+if(session_status() != PHP_SESSION_ACTIVE){
+    session_start();
+}

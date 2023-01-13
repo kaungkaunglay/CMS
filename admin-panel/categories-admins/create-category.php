@@ -2,6 +2,10 @@
 require "../layouts/header.php";
 require "../../config/config.php" ;
 
+if(!isset($_SESSION['adminname'])){
+    header("Location: ".ADMINROOT."/admins/login-admins.php");
+}
+
 if(isset($_POST['submit'])){
     if(empty($_POST['name'])){
         echo "<div class='alert alert-danger text-center text-white' role='alert'>Enter data into input</div>";

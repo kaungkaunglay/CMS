@@ -2,6 +2,9 @@
 require "../../config/config.php";
 ?>
 <?php
+    if(!isset($_SESSION['adminname'])){
+        header("Location: ".ADMINROOT."/admins/login-admins.php");
+    }
     if(isset($_GET['id']) AND isset($_GET['status'])){
         $id = $_GET['id'];
         $status = $_GET['status'];

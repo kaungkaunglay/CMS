@@ -2,6 +2,9 @@
 require "../layouts/header.php";
 require "../../config/config.php";
 
+if(!isset($_SESSION['adminname'])){
+    header("Location: ".ADMINROOT."/admins/login-admins.php");
+}
 //Query
     $posts = $conn->query("SELECT posts.id AS id, posts.title AS title, posts.username AS username, categories.name AS name, posts.status AS status FROM categories JOIN posts ON categories.id = posts.category_id");
     $posts->execute();

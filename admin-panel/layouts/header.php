@@ -53,7 +53,7 @@ if(session_status() != PHP_SESSION_ACTIVE)
                     <a class="nav-link" href="<?php echo ADMINROOT ?>/posts-admins/show-posts.php" style="margin-left: 20px;">Posts</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" style="margin-left: 20px;">Comments</a>
+                    <a class="nav-link" href="<?php echo ADMINROOT?>/comments-admins/show-comments.php" style="margin-left: 20px;">Comment</a>
                   </li>
 
                 </ul>

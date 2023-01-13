@@ -3,6 +3,9 @@ require "../layouts/header.php";
 require "../../config/config.php";
 ?>
 <?php
+if(!isset($_SESSION['adminname'])){
+    header("Location: ".ADMINROOT."/admins/login-admins.php");
+}
 if(isset($_GET['upd_id'])) {
     $id = $_GET['upd_id'];
     //first query

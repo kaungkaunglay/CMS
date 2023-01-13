@@ -1,6 +1,9 @@
 <?php
 require "../layouts/header.php";
 require "../../config/config.php";
+    if(!isset($_SESSION['adminname'])){
+        header("Location: ".ADMINROOT."/admins/login-admins.php");
+    }
 
     $categories = $conn->query("SELECT * FROM categories LIMIT 7");
     $categories->execute();

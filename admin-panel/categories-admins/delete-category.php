@@ -3,7 +3,9 @@ require "../../config/config.php";
 require "../layouts/header.php";
 ?>
 <?php
-
+if(!isset($_SESSION['adminname'])){
+    header("Location: ".ADMINROOT."/admins/login-admins.php");
+}
 if(isset($_GET['del_id'])){
          $id = $_GET['del_id'];
         $delete = $conn->prepare("DELETE FROM categories WHERE id = :id");
